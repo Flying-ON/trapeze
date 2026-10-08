@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trapeze Wiki</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --cream: #E9C785;
+    --orange: #F39658;
+    --coral: #F52A39;
+    --teal: #47898C;
+    --dark-teal: #357679;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #faf8f2;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+header {
+    background: var(--dark-teal);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Fraunces', serif;
+    font-size: 3rem;
+}
+
+#level {
+    margin-top: .75rem;
+    opacity: .9;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.video-wrapper {
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+}
+
+.section {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.section h2 {
+    margin-top: 0;
+    color: var(--dark-teal);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--dark-teal);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    color: var(--orange);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1 id="title">Loading...</h1>
+    <div id="level"></div>
+</header>
+
+<div class="container">
+
+    <a class="back-link" href="index.html">
+        ← Back to Library
+    </a>
+
+    <div class="video-wrapper">
+        <iframe
+            id="video"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="section">
+        <h2>Overview</h2>
+        <p id="overview"></p>
+    </div>
+
+    <div class="section">
+        <h2>Prerequisites</h2>
+        <ul id="prerequisites"></ul>
+    </div>
+
+    <div class="section">
+        <h2>Key Points</h2>
+        <ul id="keypoints"></ul>
+    </div>
+
+</div>
+
+<script src="data/tricks.js"></script>
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+const trick =
+tricks.find(t => t.id === id);
+
+if (trick) {
+
+    document.title =
+        `${trick.title} | Trapeze Wiki`;
+
+    document.getElementById("title").innerText =
+        trick.title;
+
+    document.getElementById("level").innerText =
+        trick.level;
+
+    document.getElementById("video").src =
+        `https://www.youtube.com/embed/${trick.youtube}`;
+
+    document.getElementById("overview").innerText =
+        trick.overview || "";
+
+    const prereqList =
+        document.getElementById("prerequisites");
+
+    (trick.prerequisites || []).forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        prereqList.appendChild(li);
+    });
+
+    const keypointsList =
+        document.getElementById("keypoints");
+
+    (trick.keypoints || []).forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        keypointsList.appendChild(li);
+    });
+
+}
+
+</script>
+
+</body>
+</html>

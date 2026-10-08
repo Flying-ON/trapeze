@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trapeze Wiki</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&display=swap" rel="stylesheet">
+
+
 <style>
 :root {
      --cream: #E9C785;
@@ -12,6 +15,11 @@
     --coral: #F52A39;
     --teal: #47898C;
     --dark-teal: #357679;
+    --bg: #f7f4ed;
+    --text: #243b3d;
+    --subtext: #647577;
+    --card: #ffffff;
+    --border: #dce5e2;
 }
 
 * {
@@ -33,11 +41,13 @@ header {
     padding: 1.5rem 2rem;
     position: sticky;
     top: 0;
+    z-index: 2;
 }
 
 header h1 {
     max-width: 1200px;
     margin: auto;
+    font-family: 'Fraunces', serif;
     font-size: 2rem;
 }
 
@@ -47,12 +57,54 @@ header h1 {
     padding: 0 1rem;
 }
 
+.hero {
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    padding: 3rem max(2rem, calc((100% - 1200px) / 2));
+    color: white;
+    background:
+        linear-gradient(90deg, rgba(26, 61, 63, .78), rgba(26, 61, 63, .12)),
+        url("https://picsum.photos/1600/560?random=8") center 45% / cover;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero h2 {
+    max-width: 100%;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.08;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .24);
+}
+
+.hero p {
+    max-width: 520px;
+    margin: 1rem auto 0;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .3);
+}
+
 .accordion-item {
     background: white;
     border: 1px solid var(--border);
     border-radius: 16px;
     margin-bottom: 1rem;
     overflow: hidden;
+    box-shadow: 0 6px 18px rgba(35, 66, 68, .12);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 10px 26px rgba(35, 66, 68, .17);
 }
 
 .accordion-header {
@@ -63,6 +115,7 @@ header h1 {
     padding: 1.25rem 1.5rem;
     font-size: 1.1rem;
     font-weight: 600;
+    font-family: 'Fraunces', serif;
     text-align: left;
     cursor: pointer;
     display: flex;
@@ -102,7 +155,8 @@ header h1 {
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(35, 66, 68, .1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
@@ -149,6 +203,13 @@ header h1 {
     <h1>🎪 Flying Trapeze Wiki</h1>
 </header>
 
+<section class="hero" aria-label="Flying trapeze introduction">
+    <div class="hero-content">
+        <h2>Find your next flight</h2>
+        <p>A guide to flying trapeze skills, progressions, and the joy of being in the air.</p>
+    </div>
+</section>
+
 <div class="container">
 
     <!-- Beginner -->
@@ -161,7 +222,7 @@ header h1 {
         <div class="accordion-content">
             <div class="card-grid">
 
-                <a href="kneehang.html" class="card">
+                <a href="trick.html?id=kneehang" class="card">
                     <img src="https://picsum.photos/400/250?1">
                     <div class="card-content">
                         <h3>Knee Hang</h3>
@@ -170,7 +231,7 @@ header h1 {
                     </div>
                 </a>
 
-                <a href="#" class="card">
+                <a href="trick.html?id=birdsnest" class="card">
                     <img src="https://picsum.photos/400/250?2">
                     <div class="card-content">
                         <h3>Bird's Nest</h3>
@@ -206,10 +267,10 @@ header h1 {
         </div>
     </div>
 
-    <!-- Catch Tricks -->
+    <!-- Swings -->
     <div class="accordion-item">
         <button class="accordion-header">
-            Catch Tricks
+            Swings
             <span class="arrow">▼</span>
         </button>
 
@@ -220,8 +281,8 @@ header h1 {
                     <img src="https://picsum.photos/400/250?4">
                     <div class="card-content">
                         <h3>Layout</h3>
-                        <p>Classic catch progression.</p>
-                        <span class="tag">Catch</span>
+                        <p>Classic swing progression.</p>
+                        <span class="tag">Swing</span>
                     </div>
                 </a>
 
@@ -232,7 +293,7 @@ header h1 {
     <!-- Returns -->
     <div class="accordion-item">
         <button class="accordion-header">
-            Returns
+            Back-end Tricks
             <span class="arrow">▼</span>
         </button>
 
@@ -242,9 +303,9 @@ header h1 {
                 <a href="#" class="card">
                     <img src="https://picsum.photos/400/250?5">
                     <div class="card-content">
-                        <h3>Pullover Return</h3>
-                        <p>Core return mechanics.</p>
-                        <span class="tag">Return</span>
+                        <h3>Back End Split</h3>
+                        <p>Core mechanics.</p>
+                        <span class="tag">Back end</span>
                     </div>
                 </a>
 
