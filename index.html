@@ -1,48 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>International Raisin Society</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trapeze Video Wiki</title>
 
-    <style>
-        body {
-            font-family: Georgia, serif;
-            text-align: center;
-            background-color: #f4f1e8;
-            margin: 0;
-            padding: 40px;
-        }
+<style>
+:root {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --accent: #2d6cdf;
+    --text: #222;
+    --subtext: #666;
+    --border: #e5e7eb;
+}
 
-        h1 {
-            margin-bottom: 30px;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .video-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+body {
+    font-family: Inter, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
 
-        video {
-            width: 100%;
-            border-radius: 8px;
-        }
-    </style>
+header {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.search {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    width: 300px;
+}
+
+.layout {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.sidebar {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    height: fit-content;
+    border: 1px solid var(--border);
+}
+
+.sidebar h3 {
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 0.8rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--subtext);
+    transition: .2s;
+}
+
+.sidebar a:hover {
+    color: var(--accent);
+}
+
+.content h1 {
+    margin-bottom: 0.5rem;
+}
+
+.content p {
+    color: var(--subtext);
+    margin-bottom: 2rem;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(380px,1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.video-wrapper {
+    aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.card-content {
+    padding: 1.25rem;
+}
+
+.card-content h3 {
+    margin-bottom: .5rem;
+}
+
+.card-content p {
+    margin: 0;
+    font-size: .95rem;
+}
+
+.tag {
+    display: inline-block;
+    margin-top: .75rem;
+    background: #eef4ff;
+    color: var(--accent);
+    padding: .35rem .7rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 600;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Official IRS Video Archive</h1>
-
-    <div style="max-width:900px; margin:auto;">
-        <iframe
-            width="100%"
-            height="500"
-            src="https://www.youtube.com/embed/ly7B7ChfmKI"
-            title="IRS Video"
-            frameborder="0"
-            allowfullscreen>
-        </iframe>
+<header>
+    <div class="header-content">
+        <div class="logo">🎪 Trapeze Wiki</div>
+        <input class="search" placeholder="Search tricks...">
     </div>
+</header>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <h3>Categories</h3>
+        <ul>
+            <li><a href="#">Beginner Tricks</a></li>
+            <li><a href="#">Intermediate Tricks</a></li>
+            <li><a href="#">Advanced Tricks</a></li>
+            <li><a href="#">Catch Tricks</a></li>
+            <li><a href="#">Turnarounds</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Passing Leap</a></li>
+            <li><a href="#">Safety & Drills</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+
+        <h1>SBTC Trapeze Repository</h1>
+        <p>
+            Browse trick tutorials, progressions, drills, and coaching videos.
+        </p>
+
+        <div class="video-grid">
+
+            <!-- Video Card -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/308AuBJStzE"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="card-content">
+                    <h3>Knee Hang</h3>
+                    <p>
+                        Basic knee hang progression and common coaching points.
+                    </p>
+                    <span class="tag">Beginner</span>
+                </div>
+            </div>
+
+            <!-- Video Card -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/ly7B7ChfmKI"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="card-content">
+                    <h3>Bird's Nest</h3>
+                    <p>
+                        Timing, body position, and return mechanics.
+                    </p>
+                    <span class="tag">Intermediate</span>
+                </div>
+            </div>
+
+            <!-- Video Card -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="card-content">
+                    <h3>Double Knee Hang</h3>
+                    <p>
+                        Progression drills and catcher expectations.
+                    </p>
+                    <span class="tag">Advanced</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
 
 </body>
 </html>
