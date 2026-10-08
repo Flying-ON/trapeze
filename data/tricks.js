@@ -4,20 +4,19 @@ const tricks = [
     id: "kneehang",
     title: "Knee Hang",
     tags: "Beginner",
-    thumbnail: "https://picsum.photos/400/250?1",
+    thumbnail: "images/kneehang.webp",
     youtube: "ly7B7ChfmKI",
 
     overview:
-        "Basic hanging position used throughout trapeze.",
+        "First trick most people do!.",
 
     prerequisites: [
         "None"
     ],
 
     keypoints: [
-        "Straight legs",
-        "Strong core",
-        "Look forward"
+        "Look at your hands",
+        "Catch hands",
     ]
 }
 
