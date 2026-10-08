@@ -3,8 +3,9 @@ const tricks = [
 {
     id: "kneehang",
     title: "Knee Hang",
-    level: "Beginner",
-    youtube: "VIDEO_ID",
+    tags: "Beginner",
+    thumbnail: "https://picsum.photos/400/250?1",
+    youtube: "ly7B7ChfmKI",
 
     overview:
         "Basic hanging position used throughout trapeze.",

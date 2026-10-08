@@ -200,13 +200,13 @@ header h1 {
 <body>
 
 <header>
-    <h1>🎪 Flying Trapeze Wiki</h1>
+    <h1>🎪 SBTC trapeze net</h1>
 </header>
 
 <section class="hero" aria-label="Flying trapeze introduction">
     <div class="hero-content">
-        <h2>Find your next flight</h2>
-        <p>A guide to flying trapeze skills, progressions, and the joy of being in the air.</p>
+        <h2>Trapeze Skills</h2>
+        <p>Clear progressions for flying trapeze skills, with good quality videos.</p>
     </div>
 </section>
 
@@ -222,20 +222,20 @@ header h1 {
         <div class="accordion-content">
             <div class="card-grid">
 
-                <a href="trick.html?id=kneehang" class="card">
-                    <img src="https://picsum.photos/400/250?1">
+                <a href="trick.html?id=kneehang" class="card" data-trick-id="kneehang">
+                    <img alt="">
                     <div class="card-content">
-                        <h3>Knee Hang</h3>
-                        <p>Foundation position and timing.</p>
-                        <span class="tag">Beginner</span>
+                        <h3></h3>
+                        <p></p>
+                        <div class="card-tags"></div>
                     </div>
                 </a>
 
-                <a href="trick.html?id=birdsnest" class="card">
+                <a href="trick.html?id=straddlewhip" class="card">
                     <img src="https://picsum.photos/400/250?2">
                     <div class="card-content">
-                        <h3>Bird's Nest</h3>
-                        <p>Basic return progression.</p>
+                        <h3>Straddle Whip</h3>
+                        <p>First set trick.</p>
                         <span class="tag">Beginner</span>
                     </div>
                 </a>
@@ -257,8 +257,8 @@ header h1 {
                 <a href="#" class="card">
                     <img src="https://picsum.photos/400/250?3">
                     <div class="card-content">
-                        <h3>Double Knee Hang</h3>
-                        <p>Progression into advanced hanging skills.</p>
+                        <h3>Penny Roll</h3>
+                        <p>description</p>
                         <span class="tag">Intermediate</span>
                     </div>
                 </a>
@@ -280,8 +280,8 @@ header h1 {
                 <a href="#" class="card">
                     <img src="https://picsum.photos/400/250?4">
                     <div class="card-content">
-                        <h3>Layout</h3>
-                        <p>Classic swing progression.</p>
+                        <h3>Full Swing</h3>
+                        <p>Bent leg, straight legs, and with pull.</p>
                         <span class="tag">Swing</span>
                     </div>
                 </a>
@@ -315,7 +315,33 @@ header h1 {
 
 </div>
 
+<script src="data/tricks.js"></script>
 <script>
+document.querySelectorAll('[data-trick-id]').forEach(card => {
+    const trick = tricks.find(item => item.id === card.dataset.trickId);
+
+    if (!trick) {
+        card.hidden = true;
+        return;
+    }
+
+    card.querySelector('h3').textContent = trick.title;
+    card.querySelector('p').textContent = trick.overview || '';
+
+    const image = card.querySelector('img');
+    image.src = trick.thumbnail || '';
+    image.alt = `${trick.title} thumbnail`;
+
+    const tagsContainer = card.querySelector('.card-tags');
+    const tags = Array.isArray(trick.tags) ? trick.tags : [trick.tags];
+    tags.filter(Boolean).forEach(tagText => {
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = tagText;
+        tagsContainer.appendChild(tag);
+    });
+});
+
 const items = document.querySelectorAll('.accordion-item');
 
 items.forEach(item => {

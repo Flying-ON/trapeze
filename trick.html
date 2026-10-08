@@ -96,7 +96,7 @@ header h1 {
 
 <header>
     <h1 id="title">Loading...</h1>
-    <div id="level"></div>
+    <div id="tags"></div>
 </header>
 
 <div class="container">
@@ -149,8 +149,8 @@ if (trick) {
     document.getElementById("title").innerText =
         trick.title;
 
-    document.getElementById("level").innerText =
-        trick.level;
+    document.getElementById("tags").innerText =
+        trick.tags;
 
     document.getElementById("video").src =
         `https://www.youtube.com/embed/${trick.youtube}`;
